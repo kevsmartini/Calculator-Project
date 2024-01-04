@@ -22,32 +22,6 @@ let acumulatorNumber = ''
 
 
 
-/////////////OPERATORS//////////
-
-
-// const add = (n1, n2) => {
-//    return n1+n2
-// }
-
-
-// const subtract = (n1, n2) => {
-//     return n1-n2
-
-
-// }
-
-
-// const multiply = (n1, n2) => {
-//     return n1*n2
-
-// }
-
-
-// const divide = (n1, n2) => {
-//     return n1/n2
-
-
-// }
 
 
 //////BUTTONS///
@@ -101,6 +75,25 @@ equals.addEventListener('click',()=>{
 
 })
 
+remove.addEventListener('click',()=>{
+
+  display.value = display.value.slice(0,-1)
+
+  currentNumber = display.value
+
+})
+
+
+decimal.addEventListener('click',()=>{
+
+  if(currentNumber != ''){
+    currentNumber += '.'
+  }
+
+})
+
+
+//////////FUNCTIONS///////
 
 
 const numberClicked = (number) => {
@@ -128,6 +121,9 @@ const operate = () =>{
   if(operator === 'x') acumulatorNumber *= currentNumber;
   if(operator === '÷') acumulatorNumber /= currentNumber;
 
+
+  //acumulatorNumber = acumulatorNumber.toFixed(2)
+  acumulatorNumber = Math.round(acumulatorNumber * 100)/100
   currentNumber = currentNumber.toString()
   acumulatorNumber = acumulatorNumber.toString()
  
@@ -138,12 +134,6 @@ const operate = () =>{
 
 
 
-remove.addEventListener('click',()=>{
 
-  display.value = display.value.slice(0,-1)
-
-  currentNumber = display.value
-
-})
 
 
